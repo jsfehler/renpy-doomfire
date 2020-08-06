@@ -8,4 +8,5 @@ screen doom_fire:
 
 
 init python:
+    # doom_fire = c_doomfire.DoomFire(palette, pixel_distance=2, width=128, height=128)
     doom_fire = py_doomfire.DoomFire(palette, pixel_distance=2, width=128, height=128)
