@@ -1,3 +1,5 @@
+![Screenshot](/screenshot.png?raw=true "Screenshot")
+
 # renpy-doomfire
 Doom's fire effect, in Ren'py
 
