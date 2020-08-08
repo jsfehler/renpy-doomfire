@@ -22,6 +22,7 @@ init -1000 python in c_doomfire:
             self.width = width * self.pixel_distance
             self.height = height * self.pixel_distance
 
+            # Number of pixels, across and wide
             self.fire_width = width
             self.fire_height = height
 
@@ -32,16 +33,14 @@ init -1000 python in c_doomfire:
             # Setup lists that record the pixel colour data
             self.c_lib.setup_fire(width, height)
 
-            # We already know where every pixel will be placed on screen, so record that ahead of time
-            self.pixel_positions = []
-            for y, x in itertools.product(range(height), range(width)):
-                index = y * width + x
-                self.pixel_positions.append(
-                    (index, x * self.pixel_distance, y * self.pixel_distance)
-                )
-
-            # Vain attempt to get a bit more speed
-            self.pixel_positions = tuple(self.pixel_positions)
+            # We already know where every pixel will be drawn on screen, so record that ahead of time
+            # The three attributes for each pixel are:
+            #   colour_index: Index for the list that stores the current height of every pixel
+            #   xpos: physical x position of the pixel
+            #   ypos: physical y position of the pixel
+            self.pixel_screen_positions = tuple(
+                ((y * width + x, x * self.pixel_distance, y * self.pixel_distance) for y, x in itertools.product(range(height), range(width)))
+            )
 
         def draw_pixels(self, surface):
             """Draw all the pixels to a surface.
@@ -55,7 +54,7 @@ init -1000 python in c_doomfire:
             
             get_at = self.c_lib.get_at
 
-            for colour_index, xpos, ypos in self.pixel_positions:
+            for colour_index, xpos, ypos in self.pixel_screen_positions:
                 # Get colour height of current pixel
                 height_index = get_at(colour_index)
 
