@@ -31,7 +31,7 @@ init -1000 python in c_doomfire:
             self.c_lib = cdll.LoadLibrary(path)
 
             # Setup lists that record the pixel colour data
-            self.c_lib.setup_fire(width, height)
+            self.c_lib.setup_height_map(width, height)
 
             # We already know where every pixel will be drawn on screen, so record that ahead of time
             # The three attributes for each pixel are:
