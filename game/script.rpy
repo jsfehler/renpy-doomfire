@@ -16,6 +16,7 @@ screen select_doomfire():
     vbox:
         textbutton "Python" action Show("doomfire", displayable=py_doomfire)
         textbutton "Python + ctypes" action Show("doomfire", displayable=c_doomfire)
+        textbutton "Cython" action Show("doomfire", displayable=cy_doomfire)
 
 
 screen doomfire(displayable):
