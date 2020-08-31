@@ -42,7 +42,7 @@ init -1000 python in py_doomfire:
             """Build two lists:
                 - pixel_list: Values for every pixel's current color height
                 - fire_positions: Indexes for every pixel in pixel_list
-            """            
+            """
             # Set heights for entire drawable area to 0
             self.pixel_list = [0 for i in range(self.fire_width * self.fire_height)]
 
@@ -53,7 +53,7 @@ init -1000 python in py_doomfire:
             self.fire_positions = tuple(
                 (y * self.fire_width + x for x, y in itertools.product(range(self.fire_width), range(1, self.fire_height)))
             )
-           
+
         def spread_fire(self):
             """Move each pixel's color height."""
             for source in self.fire_positions:
@@ -98,5 +98,5 @@ init -1000 python in py_doomfire:
             self.draw_pixels(render.canvas().surf)
 
             renpy.redraw(self, 0.05)
-            
+
             return render
