@@ -21,6 +21,10 @@ A built game is available in the build directory.
 You can also create a new Ren'Py project and drop the files in there.
 
 ### Notes
+  - Using a zoom transform is a cheap way to cover more of the screen. 
+
+  - Why not numpy? Not compatible without customising Ren'py.
+
   - Ren'Py currently uses Python2.7. Your Cython has to build for 2.7 as well.
 
   - Ren'Py doesn't use Pygame, it uses https://github.com/renpy/pygame_sdl2. You could adapt the logic here to vanilla Pygame, but it's not a drop-in solution.
