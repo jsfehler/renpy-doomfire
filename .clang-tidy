@@ -1,0 +1,17 @@
+Checks: '
+*,
+-readability-identifier-length,
+-readability-magic-numbers,
+-llvmlibc-restrict-system-libc-headers,
+-altera-id-dependent-backward-branch,
+-altera-struct-pack-align,
+-altera-unroll-loops,
+-cppcoreguidelines-avoid-non-const-global-variables,
+-cert-msc30-c,
+-cert-msc50-cpp,
+-concurrency-mt-unsafe,
+-hicpp-signed-bitwise,
+-bugprone-narrowing-conversions,
+-cppcoreguidelines-narrowing-conversions,
+-cppcoreguidelines-avoid-magic-numbers,
+'

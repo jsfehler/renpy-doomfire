@@ -1,5 +1,5 @@
 ﻿init -1000 python:
-    # Create pallete with 37 colours
+    # Create palette with 37 colours
     palette = (
         (0x07,0x07,0x07),
         (0x1F,0x07,0x07),

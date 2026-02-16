@@ -4,21 +4,30 @@
 
 
 init python:
-    c_doomfire = c_doomfire.DoomFire(palette, pixel_distance=1, width=212, height=128)
+    WIDTH = 212
+    HEIGHT = 128
 
-    py_doomfire = py_doomfire.DoomFire(palette, pixel_distance=1, width=212, height=128)
+    c_doomfire_impl = c_doomfire.DoomFire(palette, pixel_distance=1, width=WIDTH, height=HEIGHT)
 
-    import doom_fire_cy
-    cy_doomfire = doom_fire_cy.DoomFire(palette, pixel_distance=1, width=212, height=128)
+    py_doomfire_impl = py_doomfire.DoomFire(palette, pixel_distance=1, width=WIDTH, height=HEIGHT)
+
+    cy_doomfire_impl = cy_doomfire.DoomFire(palette, pixel_distance=1, width=WIDTH, height=HEIGHT)
+
+    cy_extern_doomfire_impl = cy_extern_doomfire.DoomFire(palette, pixel_distance=1, width=WIDTH, height=HEIGHT)
+
+    rust_doomfire_impl = rust_doomfire.DoomFire(palette, pixel_distance=1, width=WIDTH, height=HEIGHT)
 
 
 screen select_doomfire():
     vbox:
-        textbutton "Python" action Show("doomfire", displayable=py_doomfire)
-        textbutton "Python + ctypes" action Show("doomfire", displayable=c_doomfire)
-        textbutton "Cython" action Show("doomfire", displayable=cy_doomfire)
+        textbutton "Pure Python." action Show("doomfire", displayable=py_doomfire_impl)
+        textbutton "C backend. Loaded using ctypes." action Show("doomfire", displayable=c_doomfire_impl)
+        textbutton "Cython." action Show("doomfire", displayable=cy_doomfire_impl)
+        textbutton "Cython Extern." action Show("doomfire", displayable=cy_extern_doomfire_impl)
+        textbutton "Rust Backend. Built using PyO3 + Maturin." action Show("doomfire", displayable=rust_doomfire_impl)
 
 
+# Using a zoom transform is a cheap way to cover more of the screen.
 screen doomfire(displayable):
     tag doomfire
 

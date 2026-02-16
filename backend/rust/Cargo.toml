@@ -1,0 +1,17 @@
+[package]
+name = "doom_fire_rust"
+version = "0.0.1"
+edition = "2021"
+description = "Backend math for the Doom fire effect."
+
+[lib]
+name = "doom_fire_rust"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pyo3 = { version = "0.24", features = ["extension-module"] }
+rand = "0.9"
+
+[profile.release]
+opt-level = 3
+lto = true
